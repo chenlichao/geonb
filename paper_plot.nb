@@ -1,0 +1,65 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1375,         55]
+NotebookOptionsPosition[       993,         36]
+NotebookOutlinePosition[      1338,         51]
+CellTagsIndexPosition[      1295,         48]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Plot Elements", "Title",
+ CellChangeTimes->{{3.6115997472324343`*^9, 3.6115997541053143`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Tradition Approach", "Section",
+ CellChangeTimes->{{3.6115997613845143`*^9, 3.6115997756636257`*^9}}],
+
+Cell[BoxData["Plot"], "Input",
+ CellChangeTimes->{{3.6115997774878597`*^9, 3.6115997774908776`*^9}, {
+  3.611600303346243*^9, 3.6116003089702196`*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{707, 816},
+WindowMargins->{{Automatic, 274}, {42, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 100, 1, 101, "Title"],
+Cell[CellGroupData[{
+Cell[704, 27, 107, 1, 86, "Section"],
+Cell[814, 30, 151, 2, 31, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
