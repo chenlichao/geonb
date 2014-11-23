@@ -42,7 +42,7 @@ comm3 = FindGraphCommunities[g3]];*)
 
 
 Clear[LoadGlobalData]
-LoadGlobalData[fnx_,fny_,fns_,fnn_]:=Module[{scale,xvr,yvr,svr,noisyr,pickFinal,xv,yv,sv,nv,summary},
+LoadGlobalData[fnx_,fny_,fns_,fnn_]:=Module[{xvr,yvr,svr,noisyr,pickFinal,xv,yv,sv,nv,summary,gx,gy,gs,gn},
 (*scale= ReadList[home<>"/geo/converge_s.txt",{Number,Real, Real,Real,Real, Real,Real, Real,Real,Real, Real,Real}][[;;,{1,12}]];*)
 xvr= ToExpression//@StringSplit/@ReadList[fnx,Record];
 yvr= ToExpression//@StringSplit/@ReadList[fny,Record];
@@ -51,9 +51,22 @@ noisyr= ToExpression//@StringSplit/@ReadList[fnn,Record]/.{false->False,true->Tr
 pickFinal[x_]:=x[[;;,{1,-1}]];
 xv=pickFinal[xvr];yv=pickFinal[yvr];sv=pickFinal[svr];nv=pickFinal[noisyr];summary=Join[xv,yv,sv,nv,2];
 gx = Association[];gy = Association[];gs=Association[];gn=Association[];
-(gx[#[[1]]]=#[[2]];gy[#[[1]]]=#[[4]];gs[#[[1]]]=#[[6]];gn[#[[1]]]=#[[8]];)&/@summary;
-xmap=Select[(#->gx[#]+gs[#]/2 )&/@Range[1006],NumberQ[#[[2]]]&];
+(*(gx[#[[1]]]=#[[2]];gy[#[[1]]]=#[[4]];gs[#[[1]]]=#[[6]];gn[#[[1]]]=#[[8]];)&/@summary;*)
+(With[{idx = #[[1]]}, gx[idx]=#[[2]];gy[idx]=#[[4]];gs[idx]=#[[6]];gn[idx]=#[[8]];])&/@summary;
+(*xmap=Select[(#->gx[#]+gs[#]/2 )&/@Range[1006],NumberQ[#[[2]]]&];*)
+{gx,gy,gs,gn}
 ];
+
+SLayer[keys_,ags_]:=Module[{sBin},
+sBin = Exp[FindDivisions[Log[{Min[ags],Max[ags]}],10]]//N;
+GroupBy[keys,Function[u, LengthWhile[sBin,ags[u]>#&]]]];
+
+Clear[SLayerPlot];
+SLayerPlot[ii_,asLayers_\:ff0cacx _,acy_]:=
+Module[{pos,idx,name},
+name = asLayers[ii];idx={name}//Transpose;
+pos=Map[{acx[#],acy[#]}&,idx,{2}];
+ListPlot[pos,PlotMarkers->Map[ToString,name],ImageSize->Large]]
 
 
 EndPackage[]
