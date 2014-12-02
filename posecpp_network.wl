@@ -50,9 +50,10 @@ svr= ToExpression//@StringSplit/@ReadList[fns,Record];
 noisyr= ToExpression//@StringSplit/@ReadList[fnn,Record]/.{false->False,true->True};
 pickFinal[x_]:=x[[;;,{1,-1}]];
 xv=pickFinal[xvr];yv=pickFinal[yvr];sv=pickFinal[svr];nv=pickFinal[noisyr];summary=Join[xv,yv,sv,nv,2];
-gx = Association[];gy = Association[];gs=Association[];gn=Association[];
-(*(gx[#[[1]]]=#[[2]];gy[#[[1]]]=#[[4]];gs[#[[1]]]=#[[6]];gn[#[[1]]]=#[[8]];)&/@summary;*)
-(With[{idx = #[[1]]}, gx[idx]=#[[2]];gy[idx]=#[[4]];gs[idx]=#[[6]];gn[idx]=#[[8]];])&/@summary;
+gx = Association[Map[Function[x,x[[1]]->x[[2]]],summary]];
+gy = Association[Map[Function[x,x[[1]]->x[[4]]],summary]];
+gs = Association[Map[Function[x,x[[1]]->x[[6]]],summary]];
+gn = Association[Map[Function[x,x[[1]]->x[[8]]],summary]];
 (*xmap=Select[(#->gx[#]+gs[#]/2 )&/@Range[1006],NumberQ[#[[2]]]&];*)
 {gx,gy,gs,gn}
 ];
