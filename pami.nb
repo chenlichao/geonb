@@ -1,0 +1,302 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9556,        293]
+NotebookOptionsPosition[      8395,        247]
+NotebookOutlinePosition[      8743,        262]
+CellTagsIndexPosition[      8700,        259]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["PAMI paper writing", "Title",
+ CellChangeTimes->{{3.625285516640984*^9, 3.6252855307970552`*^9}, {
+  3.6368145099121337`*^9, 3.6368145152624245`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Setup", "Section",
+ CellChangeTimes->{{3.636814568037978*^9, 3.6368145705510144`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"home", " ", "=", " ", "\"\<Y:/vault/pami/next/\>\""}], ";", 
+  RowBox[{"workdir", " ", "=", " ", "\"\<C:/users/lichao/git/geonb/\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6368174809471626`*^9, 3.6368174893078575`*^9}, 
+   3.636817750748001*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"home", " ", "=", " ", "\"\<Y:/vault/pami//\>\""}], ";", 
+  RowBox[{"workdir", " ", "=", " ", "\"\<C:/users/lichao/git/geonb/\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6368174571864567`*^9, 3.63681745901274*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "workdir", "]"}], ";", 
+  RowBox[{"Needs", "[", 
+   RowBox[{"\"\<Posecpp`\>\"", ",", "\"\<posecpp_network.wl\>\""}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6368145765408325`*^9, 3.6368146297288895`*^9}, {
+   3.636817424688713*^9, 3.6368174303653326`*^9}, {3.6368177633629055`*^9, 
+   3.636817771658112*^9}, 3.636817900012889*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"prefix", " ", "=", " ", "\"\<single_\>\""}], ";", 
+  RowBox[{"suffix", "=", "\"\<\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.636817895418779*^9, 3.6368178955594254`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"categories", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<car\>\"", "->", "\"\<car_400/\>\""}], ",", 
+     RowBox[{"\"\<airplane\>\"", "\[Rule]", "\"\<airplane/\>\""}], ",", 
+     RowBox[{"\"\<motorbike\>\"", "->", "\"\<motorbike/\>\""}], ",", 
+     RowBox[{"\"\<face\>\"", "->", "\"\<face/\>\""}]}], "|>"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6368176789030085`*^9, 3.6368177317707057`*^9}, 
+   3.6368179235838037`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"categories", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<car\>\"", "->", "\"\<car_\>\""}], ",", 
+     RowBox[{"\"\<airplane\>\"", "\[Rule]", "\"\<airplane_\>\""}], ",", 
+     RowBox[{"\"\<motorbike\>\"", "->", "\"\<\>\""}], ",", 
+     RowBox[{"\"\<face\>\"", "->", "\"\<face_\>\""}]}], "|>"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6368146497890763`*^9, 3.636814671403742*^9}, {
+   3.6368156781797485`*^9, 3.636815692968209*^9}, {3.6368157599866037`*^9, 
+   3.636815810366781*^9}, {3.6368176678542614`*^9, 3.6368176681270227`*^9}, 
+   3.6368179194473796`*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"car\"\>", "\[Rule]", "\<\"car_\"\>"}], ",", 
+   RowBox[{"\<\"airplane\"\>", "\[Rule]", "\<\"airplane_\"\>"}], ",", 
+   RowBox[{"\<\"motorbike\"\>", "\[Rule]", "\<\"\"\>"}], ",", 
+   RowBox[{"\<\"face\"\>", "\[Rule]", "\<\"face_\"\>"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.6368146720702686`*^9, 3.6368158109450383`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SRN Information", "Section",
+ CellChangeTimes->{{3.63681451926365*^9, 3.636814529938287*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"home", "<>", "prefix", "<>", 
+  RowBox[{"categories", "[", 
+   RowBox[{"[", "1", "]"}], "]"}], "<>", "\"\<net2_el\>\"", "<>", "suffix", 
+  "<>", "\"\<.txt\>\""}]], "Input",
+ CellChangeTimes->{{3.6368179679862385`*^9, 3.636817973884674*^9}}],
+
+Cell[BoxData["\<\"Y:/vault/pami/next/single_car_400/net2_el.txt\"\>"], \
+"Output",
+ CellChangeTimes->{{3.63681796467914*^9, 3.6368179741659336`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"p", " ", "=", " ", 
+         RowBox[{
+         "home", "<>", "prefix", "<>", "#", "<>", "\"\<net2_el\>\"", "<>", 
+          "suffix", "<>", "\"\<.txt\>\""}]}], ",", "el2", ",", "g"}], "}"}], 
+      ",", 
+      RowBox[{
+       RowBox[{"el2", "=", 
+        RowBox[{"LoadNetwork3", "[", "p", "]"}]}], ";", 
+       RowBox[{"g", " ", "=", " ", 
+        RowBox[{"Graph", "[", "el2", "]"}]}], ";", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"VertexCount", "[", "g", "]"}], ",", 
+         RowBox[{"EdgeCount", "[", "g", "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Total", "[", 
+            RowBox[{"VertexDegree", "[", "g", "]"}], "]"}], "/", 
+           RowBox[{"VertexCount", "[", "g", "]"}]}], "//", 
+          RowBox[{
+           RowBox[{"N", "[", 
+            RowBox[{"#", ",", "3"}], "]"}], "&"}]}]}], "}"}]}]}], "]"}], 
+    "&"}], ",", "categories"}], "]"}]], "Input",
+ CellChangeTimes->{{3.636814865937146*^9, 3.6368148957892427`*^9}, {
+  3.6368149655555787`*^9, 3.6368150783025837`*^9}, {3.636815323224102*^9, 
+  3.6368153266310034`*^9}, {3.636815547862121*^9, 3.636815571784814*^9}, {
+  3.636815873050275*^9, 3.636815953622547*^9}, {3.63681615192714*^9, 
+  3.6368161645923615`*^9}, {3.636816297443887*^9, 3.636816367233083*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"car\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "197", ",", "850", ",", "8.62944162436548223350253807106598984772`3."}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"airplane\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "226", ",", "983", ",", "8.69911504424778761061946902654867256637`3."}], 
+     "}"}]}], ",", 
+   RowBox[{"\<\"motorbike\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "297", ",", "1311", ",", "8.82828282828282828282828282828282828283`3."}],
+      "}"}]}], ",", 
+   RowBox[{"\<\"face\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "147", ",", "1842", ",", 
+      "25.06122448979591836734693877551020408163`3."}], "}"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.6368150255229197`*^9, 3.6368153318006196`*^9, {3.6368155723629503`*^9, 
+   3.6368155920162477`*^9}, {3.636815889091049*^9, 3.636815901644088*^9}, 
+   3.6368159543544703`*^9, {3.636816308162876*^9, 3.63681633477259*^9}, 
+   3.6368163679675303`*^9, 3.6368179368327274`*^9, 3.6368181204591885`*^9, 
+   3.6368181678747396`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SEN Information", "Section",
+ CellChangeTimes->{{3.6368145338634214`*^9, 3.636814538612277*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"p", " ", "=", " ", 
+         RowBox[{
+         "home", "<>", "prefix", "<>", "#", "<>", "\"\<voro_centers\>\"", "<>",
+           "suffix", "<>", "\"\<.txt\>\""}]}], ",", "l"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"l", "=", 
+        RowBox[{"ReadList", "[", 
+         RowBox[{"p", ",", 
+          RowBox[{"{", 
+           RowBox[{"Number", ",", "Number", ",", "Number"}], "}"}]}], "]"}]}],
+        ";", 
+       RowBox[{"{", 
+        RowBox[{"Length", "[", "l", "]"}], "}"}]}]}], "]"}], "&"}], ",", 
+   "categories"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6368164284989247`*^9, 3.636816471863924*^9}, {
+  3.636816946755107*^9, 3.6368170249286327`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"car\"\>", "\[Rule]", 
+    RowBox[{"{", "17", "}"}]}], ",", 
+   RowBox[{"\<\"airplane\"\>", "\[Rule]", 
+    RowBox[{"{", "10", "}"}]}], ",", 
+   RowBox[{"\<\"motorbike\"\>", "\[Rule]", 
+    RowBox[{"{", "27", "}"}]}], ",", 
+   RowBox[{"\<\"face\"\>", "\[Rule]", 
+    RowBox[{"{", "22", "}"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.6368169748177133`*^9, 3.6368170256552424`*^9}, 
+   3.636818362478697*^9, 3.636818460208954*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Graph", "Section",
+ CellChangeTimes->{{3.6368145413794823`*^9, 3.6368145435572433`*^9}}]
+}, Open  ]]
+},
+WindowSize->{1008, 721},
+WindowMargins->{{Automatic, 717}, {234, Automatic}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 156, 2, 101, "Title"],
+Cell[CellGroupData[{
+Cell[761, 28, 92, 1, 70, "Section"],
+Cell[856, 31, 287, 6, 31, "Input"],
+Cell[1146, 39, 254, 5, 31, "Input"],
+Cell[1403, 46, 394, 8, 31, "Input"],
+Cell[1800, 56, 209, 4, 31, "Input"],
+Cell[2012, 62, 483, 11, 31, "Input"],
+Cell[CellGroupData[{
+Cell[2520, 77, 621, 13, 31, "Input"],
+Cell[3144, 92, 417, 8, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3610, 106, 99, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[3734, 111, 264, 5, 31, "Input"],
+Cell[4001, 118, 149, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4187, 125, 1423, 35, 92, "Input"],
+Cell[5613, 162, 1131, 29, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6793, 197, 102, 1, 70, "Section"],
+Cell[CellGroupData[{
+Cell[6920, 202, 813, 23, 72, "Input"],
+Cell[7736, 227, 522, 12, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[8285, 243, 94, 1, 70, "Section"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
