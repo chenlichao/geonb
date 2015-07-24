@@ -18,7 +18,6 @@ ConstructNetwork2[rdata_,mincount_,totalvar_]:=
 Module[{rgood1,rselected1,el},
 rgood1=Select[rdata,#[[2]]>mincount&];
 rgood1[[All,5]]=Sqrt[rgood1[[All,5]]]/(Abs[rgood1[[All,8]]]);
-rgood1[[All,5]]=Sqrt[rgood1[[All,5]]]/(Abs[rgood1[[All,8]]]);
 rgood1[[All,3]]=Sqrt[rgood1[[All,3]]]/(Abs[rgood1[[All,8]]]+1);
 rgood1[[All,4]]=Sqrt[rgood1[[All,4]]]/(Abs[rgood1[[All,8]]]+1);
 rselected1=Select[rgood1,Total[#[[3;;5]]]<totalvar&&Quotient[#[[1]],10000]!=Mod[#[[1]],10000]&];
@@ -29,10 +28,8 @@ ConstructNetwork2New[rdata_,mincount_,totalvar_]:=
 (* mincout = 100, totalvar=1~.5 *)
 Module[{rgood1,rselected1,el},
 rgood1=Select[rdata,#[[2]]>mincount&];
-rgood1[[All,5]]=Sqrt[rgood1[[All,5]]]/(Abs[rgood1[[All,8]]]);
-rgood1[[All,5]]=Sqrt[rgood1[[All,5]]]/(Abs[rgood1[[All,8]]]);
-rgood1[[All,3]]=Sqrt[rgood1[[All,3]]]/(Abs[rgood1[[All,8]]]+1);
-rgood1[[All,4]]=Sqrt[rgood1[[All,4]]]/(Abs[rgood1[[All,8]]]+1);
+rgood1[[All,3]]=Sqrt[rgood1[[All,3]]]/(Exp[Abs[rgood1[[All,8]]]]+1);
+rgood1[[All,4]]=Sqrt[rgood1[[All,4]]]/(Exp[Abs[rgood1[[All,8]]]]+1);
 rselected1=Select[rgood1,Total[#[[3;;5]]]<totalvar&&Quotient[#[[1]],10000]!=Mod[#[[1]],10000]&];
 el = Map[Quotient[#[[1]],10000]<->Mod[#[[1]],10000]&,rselected1];
 el
